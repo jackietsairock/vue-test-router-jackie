@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
-// import HomeView from '../views/HomeView.vue';
+import HomeView from '../views/HomeView.vue';
+import NotFoundComponent from '../views/NotFoundComponent.vue';
 // import Rwd from '../views/Rwd.vue';
 // import Vue from '../views/Vue.vue';
 // import React from '../views/React.vue';
@@ -10,7 +11,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('../views/HomeView.vue')
+    component: HomeView
   },
   {
     path: '/rwd',
@@ -37,7 +38,8 @@ const routes = [
     path: '/node',
     name: 'node',
     component: () => import('../views/Node.vue')
-  }
+  },
+  { path: '/:pathMatch(.*)', component: NotFoundComponent }
 ]
 
 const router = createRouter({
